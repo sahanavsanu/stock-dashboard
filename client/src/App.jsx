@@ -1,7 +1,17 @@
+import { useState } from "react";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
+
 export default function App() {
+  const [email, setEmail] = useState(null);
+
   return (
-    <div style={{ padding: 40, color: "white" }}>
-      APP IS RENDERING
-    </div>
+    <>
+      {email ? (
+        <Dashboard email={email} />
+      ) : (
+        <Login onLogin={setEmail} />
+      )}
+    </>
   );
 }
