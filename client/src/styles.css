@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* DEBUG STYLE — YOU MUST SEE THIS */
+body {
+  background-color: black;
+  color: white;
+}
