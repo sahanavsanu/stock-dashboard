@@ -1,17 +1,13 @@
-import React, { useState } from "react";
-import Login from "./pages/Login.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
+import { useState } from "react";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 
 export default function App() {
   const [email, setEmail] = useState(null);
 
-  return (
-    <div>
-      {email ? (
-        <Dashboard email={email} onLogout={() => setEmail(null)} />
-      ) : (
-        <Login onLogin={setEmail} />
-      )}
-    </div>
-  );
+  if (!email) {
+    return <Login onLogin={setEmail} />;
+  }
+
+  return <Dashboard email={email} />;
 }
