@@ -5,60 +5,25 @@ export default function Login({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!email.trim()) return;
-    onLogin(email.trim());
+    if (email.trim()) {
+      onLogin(email);
+    }
   };
 
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "#0f172a",
-      }}
-    >
-      <form
-        onSubmit={handleSubmit}
-        style={{
-          background: "#020617",
-          padding: 30,
-          borderRadius: 10,
-          width: 300,
-        }}
-      >
-        <h2 style={{ color: "white", textAlign: "center", marginBottom: 20 }}>
-          Login
-        </h2>
+    <div className="min-h-screen flex flex-col items-center justify-start pt-10">
+      <h2 className="text-xl mb-4">Login</h2>
 
+      <form onSubmit={handleSubmit}>
         <input
           type="email"
           placeholder="Enter email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          style={{
-            width: "100%",
-            padding: 10,
-            marginBottom: 15,
-            borderRadius: 5,
-            border: "none",
-          }}
-          required
+          className="border px-3 py-2 mr-2"
         />
 
-        <button
-          type="submit"
-          style={{
-            width: "100%",
-            padding: 10,
-            borderRadius: 5,
-            border: "none",
-            background: "#10b981",
-            color: "white",
-            fontWeight: "bold",
-          }}
-        >
+        <button type="submit" className="border px-4 py-2">
           Login
         </button>
       </form>

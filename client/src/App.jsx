@@ -3,15 +3,11 @@ import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard";
 
 export default function App() {
-  const [email, setEmail] = useState(null);
+  const [email, setEmail] = useState("");
 
-  return (
-    <>
-      {email ? (
-        <Dashboard email={email} />
-      ) : (
-        <Login onLogin={setEmail} />
-      )}
-    </>
-  );
+  if (!email) {
+    return <Login onLogin={setEmail} />;
+  }
+
+  return <Dashboard email={email} />;
 }
